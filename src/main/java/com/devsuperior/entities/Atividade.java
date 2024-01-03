@@ -29,6 +29,12 @@ public class Atividade {
             inverseJoinColumns = @JoinColumn(name = "participante_id"))
 	private Set<Participante> participantes = new HashSet<>();
 
+	@ManyToMany
+	@JoinTable(name = "tb_atividade_bloco",
+			joinColumns = @JoinColumn(name = "atividade_id"),
+			inverseJoinColumns = @JoinColumn(name = "bloco_id"))
+	private Set<Bloco> blocos = new HashSet<>();
+
 	public Atividade(Long id, String nome, String descricao, Double preco) {
 		this.id = id;
 		this.nome = nome;
@@ -70,6 +76,10 @@ public class Atividade {
 	
 	public Set<Participante> getParticipantes() {
 		return participantes;
+	}
+
+	public Set<Bloco> getBlocos() {
+		return blocos;
 	}
 
 	@Override
