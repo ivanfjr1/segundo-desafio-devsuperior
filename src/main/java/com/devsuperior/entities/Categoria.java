@@ -11,6 +11,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "tb_categoria")
 public class Categoria {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -56,5 +57,4 @@ public class Categoria {
 		return Objects.equals(descricao, other.descricao) && Objects.equals(id, other.id);
 	}
 
-	
 }
